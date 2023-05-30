@@ -29,11 +29,12 @@ def hangman():
         word_list = [letter if letter in used_letters else '_' for letter in word]
         print("Current word: ", " ".join(word_list))
 
-        guessed_letter = input("Guess a letter: ").upper
+        guessed_letter = input("Guess a letter: ").upper()
         if guessed_letter in alphabet - used_letters:
             used_letters.add(guessed_letter)
             if guessed_letter in word_letters:
                 word_letters.remove(guessed_letter)
+                
         elif guessed_letter in used_letters: 
             print("Already used that character. Try again.")
         else:
