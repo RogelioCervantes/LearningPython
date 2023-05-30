@@ -1,19 +1,20 @@
 import random
 
 def play():
-    print("'R' for rock, 'P' for paper, 'S' for scissors, 'E' for exit")
-    user = ""
+    keepPlaying = ""
 
-    while user != 'e':
-        user = input("--> ").lower
+    while keepPlaying != 'n':
+        user = input("'R' for rock, 'P' for paper, 'S' for scissors\n--> ").lower()
         computer = random.choice(['r', 'p', 's'])
 
         if user == computer:
-            print(f"You: {setChoice(user)} // CPU: {setChoice(computer)}\nTie.")
+            print(f"\nYou: {setChoice(user)} // CPU: {setChoice(computer)}\n\nTie.")
         elif is_win(user, computer):
-            print(f"You: {setChoice(user)} // CPU: {setChoice(computer)}\nYou won!")
+            print(f"\nYou: {setChoice(user)} // CPU: {setChoice(computer)}\n\nYou won!")
         else:
-            print(f"You: {setChoice(user)} // CPU: {setChoice(computer)}\nYou lost...")
+            print(f"\nYou: {setChoice(user)} // CPU: {setChoice(computer)}\n\nYou lost...")
+        
+        keepPlaying = input("Continue? y/n\n--> ").lower()
     
 # R > S, S > P, P > R
 def is_win(player, rival):
